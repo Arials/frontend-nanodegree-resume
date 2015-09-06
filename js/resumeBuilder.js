@@ -60,52 +60,75 @@ var education = {
 			"name" : "Universidad de Vigo",
 			"city" : "Vigo, Galicia, Spain",
 			"degree" : "BA",
-			"major" : ["Telecomunication", "Embedded software"]
+			"major" : ["Telecommunications", "Embedded software"]
 		},
 				{
 			"name" : "Universidad de Vigo",
 			"city" : "Vigo, Galicia, Spain",
 			"degree" : "Master",
-			"major" : ["Telecomunication Enginieer", "Embedded software"]
+			"major" : ["Telecommunications Enginieer", "Embedded software"]
 		}
 	],
 	"online":
 	[
 		{
 			"name" : "Front End Web Developer Nanodegree",
-			"where" : "Udactie",
+			"school" : "Udactie",
 			"date" : "2015",
 			"URL" : "www.udacity.com"
 		},
 		{
 			"name" : "Introdution to Interactive Programming with Python part I",
-			"where" : "coursera",
+			"scool" : "coursera",
 			"date" : "2015",
 			"URL" : "https://www.coursera.org/account/accomplishments/records/RjBGnKP7mgkQKYkV"
 		},
 		{
 			"name" : "Introdution to Interactive Programming with Python part II",
-			"where" : "coursera",
+			"school" : "coursera",
 			"date" : "2015",
 			"URL" : "https://www.coursera.org/account/accomplishments/records/JuGzWntkuTuvRmZh"
 		}
 	]
 };
 
-//TODO un objeto education con un array de schools y array de cursos online.
-// datos para el school: name, location, degree, major, dates, url
-// datos para online curses: title, school, dates, url
 
-var formattedName = HTMLheaderName.replace("%data%", bio.name);
-var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
-var formattedEmail = HTMLemail.replace("%data%", bio.contact_info);
-var formattedWelcomeMessage = HTMLwelcomeMsg.replace("%data%", bio.welcome_message);
-var formattedSkills = HTMLskills.replace("%data%", bio.skills);
-var formattedImage = HTMLbioPic.replace("%data%", bio.picture_URL);
+if (bio.skills.length > 0){
+	$("#header").append(HTMLskillsStart);
+	var formattedSkills = HTMLskills.replace("%data%", bio.skills[0]);
+	$("#skills").append(formattedSkills);
+	var formattedSkills = HTMLskills.replace("%data%", bio.skills[1]);
+	$("#skills").append(formattedSkills);
+	var formattedSkills = HTMLskills.replace("%data%", bio.skills[2]);
+	$("#skills").append(formattedSkills);
+	var formattedSkills = HTMLskills.replace("%data%", bio.skills[3]);
+	$("#skills").append(formattedSkills);
+	var formattedSkills = HTMLskills.replace("%data%", bio.skills[4]);
+	$("#skills").append(formattedSkills);
+};
+for (job in work.jobs){
+	$("#workExperience").append(HTMLworkStart);
+	var formattedEmployer = HTMLworkEmployer.replace("%data%", work.jobs[job].employer);
+	var formattedJobTitle = HTMLworkTitle.replace("%data%", work.jobs[job].title);
+	formattedEmployerJob = formattedEmployer + formattedJobTitle;
+	$(".work-entry:last").append(formattedEmployerJob);
+	//$(".work-entry:last").append(formattedJobTitle);
 
-$("#header").prepend(formattedRole);
-$("#header").prepend(formattedName);
-$("#header").append(formattedEmail);
-$("#header").append(formattedWelcomeMessage);
-$("#header").append(formattedSkills);
-$("#header").append(formattedImage);
+	console.log(HTMLworkStart);
+	console.log(formattedEmployer);
+};
+
+
+// var formattedName = HTMLheaderName.replace("%data%", bio.name);
+// var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
+// var formattedEmail = HTMLemail.replace("%data%", bio.contact_info);
+// var formattedWelcomeMessage = HTMLwelcomeMsg.replace("%data%", bio.welcome_message);
+// var formattedSkills = HTMLskills.replace("%data%", bio.skills);
+// var formattedImage = HTMLbioPic.replace("%data%", bio.picture_URL);
+
+// $("#header").prepend(formattedRole);
+// $("#header").prepend(formattedName);
+// $("#header").append(formattedEmail);
+// $("#header").append(formattedWelcomeMessage);
+// $("#header").append(formattedSkills);
+// $("#header").append(formattedImage);
