@@ -92,6 +92,9 @@ var education = {
 	]
 };
 
+var formattedName =
+
+$("#main").append()
 
 if (bio.skills.length > 0){
 	$("#header").append(HTMLskillsStart);
@@ -128,6 +131,14 @@ displayWork();
 
 $(document).click(function(loc) {
   // your code goes here
-  console.log("X: " + loc.pageX);
-  console.log("Y: " + loc.pageY);
+  // console.log("X: " + loc.pageX);
+  // console.log("Y: " + loc.pageY);
+  logClicks(loc.pageX, loc.pageY);
 });
+
+function inName(name)
+{
+	return "Prueba";
+}
+
+$("#main").append(internationalizeButton);
