@@ -15,7 +15,8 @@ var bio = {
 	 	"location" : "A Coruña, Spain"
 	},
 	"welcomeMessage" : "print('Hello world')",
-	"skills" : ["Networking", "C#", "C++", "SQL", "C"]
+	"skills" : ["Networking", "C#", "C++", "SQL", "C"],
+	"picture" : "images/fry.jpg"
 };
 
 var work = {
@@ -94,16 +95,15 @@ var education = {
 
 var formattedName = HTMLheaderName.replace("%data%", bio.name);
 var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
-var formattedEmail = HTMLemail.replace("%data%", bio.contact_info);
-var formattedWelcomeMessage = HTMLwelcomeMsg.replace("%data%", bio.welcome_message);
+var formattedEmail = HTMLemail.replace("%data%", bio.contacts.email);
+var formattedWelcomeMessage = HTMLwelcomeMsg.replace("%data%", bio.welcomeMessage);
 var formattedSkills = HTMLskills.replace("%data%", bio.skills);
-var formattedImage = HTMLbioPic.replace("%data%", bio.picture_URL);
+var formattedImage = HTMLbioPic.replace("%data%", bio.picture);
 
 $("#header").prepend(formattedRole);
 $("#header").prepend(formattedName);
 $("#header").append(formattedEmail);
 $("#header").append(formattedWelcomeMessage);
-$("#header").append(formattedSkills);
 $("#header").append(formattedImage);
 
 if (bio.skills.length > 0){
@@ -146,9 +146,14 @@ $(document).click(function(loc) {
   logClicks(loc.pageX, loc.pageY);
 });
 
-function inName(name)
+function inName(name_obj)
 {
-	return "Prueba";
+	var nameTemp = "Adriel Regueira".split(" ");
+	var lastName = nameTemp[1].toUpperCase();
+	var firstName = nameTemp[0].toLowerCase();
+	var firstCharacter = firstName[0].toUpperCase();
+	firstName = firstCharacter + firstName.slice(1);
+	return firstName + " " + lastName;
 }
 
 $("#main").append(internationalizeButton);
