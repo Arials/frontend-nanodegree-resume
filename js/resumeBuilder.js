@@ -25,14 +25,14 @@ var work = {
 			"title" : "Software Enginieer",
 			"location" : "A Coruña",
 			"dates" : "2015",
-			"description" : ""
+			"description" : "Some description"
 		},
 		{
 			"employer" : "Tecnicas de Soft S.A.",
 			"title" : "Software Developer",
 			"location" : "A Coruña",
 			"dates" : "2011 - 2013",
-			"description" : ""
+			"description" : "A little description"
 		}
 	]
 
@@ -106,29 +106,28 @@ if (bio.skills.length > 0){
 	var formattedSkills = HTMLskills.replace("%data%", bio.skills[4]);
 	$("#skills").append(formattedSkills);
 };
-for (job in work.jobs){
-	$("#workExperience").append(HTMLworkStart);
-	var formattedEmployer = HTMLworkEmployer.replace("%data%", work.jobs[job].employer);
-	var formattedJobTitle = HTMLworkTitle.replace("%data%", work.jobs[job].title);
-	formattedEmployerJob = formattedEmployer + formattedJobTitle;
-	$(".work-entry:last").append(formattedEmployerJob);
-	//$(".work-entry:last").append(formattedJobTitle);
 
-	console.log(HTMLworkStart);
-	console.log(formattedEmployer);
-};
+function displayWork()
+{
+	for (job in work.jobs){
+		$("#workExperience").append(HTMLworkStart);
+		var formattedEmployer = HTMLworkEmployer.replace("%data%", work.jobs[job].employer);
+		var formattedJobTitle = HTMLworkTitle.replace("%data%", work.jobs[job].title);
+		formattedEmployerJob = formattedEmployer + formattedJobTitle;
+		var formattedLocation = HTMLworkLocation.replace("%data%", work.jobs[job].location);
+		var formattedDates = HTMLworkDates.replace("%data%", work.jobs[job].dates);
+		var formattedDescription = HTMLworkDescription.replace("%data%", work.jobs[job].description);
+		$(".work-entry:last").append(formattedEmployerJob);
+		$(".work-entry:last").append(formattedLocation);
+		$(".work-entry:last").append(formattedDates);
+		$(".work-entry:last").append(formattedDescription);
+	};
+}
 
+displayWork();
 
-// var formattedName = HTMLheaderName.replace("%data%", bio.name);
-// var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
-// var formattedEmail = HTMLemail.replace("%data%", bio.contact_info);
-// var formattedWelcomeMessage = HTMLwelcomeMsg.replace("%data%", bio.welcome_message);
-// var formattedSkills = HTMLskills.replace("%data%", bio.skills);
-// var formattedImage = HTMLbioPic.replace("%data%", bio.picture_URL);
-
-// $("#header").prepend(formattedRole);
-// $("#header").prepend(formattedName);
-// $("#header").append(formattedEmail);
-// $("#header").append(formattedWelcomeMessage);
-// $("#header").append(formattedSkills);
-// $("#header").append(formattedImage);
+$(document).click(function(loc) {
+  // your code goes here
+  console.log("X: " + loc.pageX);
+  console.log("Y: " + loc.pageY);
+});
