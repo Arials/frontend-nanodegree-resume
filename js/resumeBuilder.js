@@ -5,7 +5,7 @@ This is empty on purpose! Your code to build the resume will go here.
 
 var bio = {
 	"name" : "Adriel Regueira",
-	"role" : "Telecomunication Enginieer",
+	"role" : "Telecommunications Enginieer",
 	"contacts" :
 	{
 	 	"mobile" : "",
@@ -92,9 +92,19 @@ var education = {
 	]
 };
 
-var formattedName =
+var formattedName = HTMLheaderName.replace("%data%", bio.name);
+var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
+var formattedEmail = HTMLemail.replace("%data%", bio.contact_info);
+var formattedWelcomeMessage = HTMLwelcomeMsg.replace("%data%", bio.welcome_message);
+var formattedSkills = HTMLskills.replace("%data%", bio.skills);
+var formattedImage = HTMLbioPic.replace("%data%", bio.picture_URL);
 
-$("#main").append()
+$("#header").prepend(formattedRole);
+$("#header").prepend(formattedName);
+$("#header").append(formattedEmail);
+$("#header").append(formattedWelcomeMessage);
+$("#header").append(formattedSkills);
+$("#header").append(formattedImage);
 
 if (bio.skills.length > 0){
 	$("#header").append(HTMLskillsStart);
