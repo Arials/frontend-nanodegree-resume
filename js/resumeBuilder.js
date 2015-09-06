@@ -1,20 +1,21 @@
 /*
 This is empty on purpose! Your code to build the resume will go here.
  */
- //$("#main").append("Adriel");
 
- //var name = "Adriel Regueira";
- //var role = "IT Enginieer";
-
-var skills = ["Networking", "C#", "C++", "SQL", "C"];
 
 var bio = {
 	"name" : "Adriel Regueira",
-	"role" : "IT Enginieer",
-	"contact_info" : "adriel@fastmail.fm",
-	"picture_URL" : "images/fry.jpg",
-	"welcome_message" : "print('Hello world')",
-	"skills" : skills
+	"role" : "Telecomunication Enginieer",
+	"contacts" :
+	{
+	 	"mobile" : "",
+	 	"email" : "adriel@fastmail.fm",
+	 	"github" : "Arials",
+	 	"twitter" : "adrielre",
+	 	"location" : "A Coruña, Spain"
+	},
+	"welcomeMessage" : "print('Hello world')",
+	"skills" : ["Networking", "C#", "C++", "SQL", "C"]
 };
 
 var work = {
@@ -24,11 +25,33 @@ var work = {
 			"title" : "Software Enginieer",
 			"location" : "A Coruña",
 			"dates" : "2015",
-			"doscription" : ""
+			"description" : ""
+		},
+		{
+			"employer" : "Tecnicas de Soft S.A.",
+			"title" : "Software Developer",
+			"location" : "A Coruña",
+			"dates" : "2011 - 2013",
+			"description" : ""
 		}
 	]
 
 };
+
+var projects =
+	[
+	{
+		"title" : "",
+		"dates" : "",
+		"description" : "",
+		"images" :
+		[
+			{
+				"URL" : ""
+			}
+		]
+	}
+	];
 
 var education = {
 	"schools":
