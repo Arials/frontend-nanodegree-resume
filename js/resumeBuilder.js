@@ -18,19 +18,55 @@ var bio = {
 };
 
 var work = {
-	"job" : {
-		"employer" : "Tecnicas de Soft S.A.",
-		"title" : "Software Enginieer",
-		"location" : "A Coruña",
-		"dates" : "2015",
-		"doscription" : ""
-	}
+	"jobs" : [
+		{
+			"employer" : "Tecnicas de Soft S.A.",
+			"title" : "Software Enginieer",
+			"location" : "A Coruña",
+			"dates" : "2015",
+			"doscription" : ""
+		}
+	]
 
 };
 
 var education = {
-	"name" : "Universidad de Vigo",
-	"city" : "Vigo"
+	"schools":
+	[
+		{
+			"name" : "Universidad de Vigo",
+			"city" : "Vigo, Galicia, Spain",
+			"degree" : "BA",
+			"major" : ["Telecomunication", "Embedded software"]
+		},
+				{
+			"name" : "Universidad de Vigo",
+			"city" : "Vigo, Galicia, Spain",
+			"degree" : "Master",
+			"major" : ["Telecomunication Enginieer", "Embedded software"]
+		}
+	],
+	"online":
+	[
+		{
+			"name" : "Front End Web Developer Nanodegree",
+			"where" : "Udactie",
+			"date" : "2015",
+			"URL" : "www.udacity.com"
+		},
+		{
+			"name" : "Introdution to Interactive Programming with Python part I",
+			"where" : "coursera",
+			"date" : "2015",
+			"URL" : "https://www.coursera.org/account/accomplishments/records/RjBGnKP7mgkQKYkV"
+		},
+		{
+			"name" : "Introdution to Interactive Programming with Python part II",
+			"where" : "coursera",
+			"date" : "2015",
+			"URL" : "https://www.coursera.org/account/accomplishments/records/JuGzWntkuTuvRmZh"
+		}
+	]
 };
 
 //TODO un objeto education con un array de schools y array de cursos online.
