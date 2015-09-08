@@ -39,20 +39,38 @@ var work = {
 
 };
 
-var projects =
-	[
-	{
-		"title" : "",
-		"dates" : "",
-		"description" : "",
-		"images" :
-		[
+var projects ={
+	"info" : [
+		{
+			"title" : "Project 1",
+			"dates" : "2015",
+			"description" : "Description",
+			"images" :
+			[
+				{
+					"URL" : ""
+				}
+			]
+
+		}
+	],
+	"display" : function display()
+		{
+			for (project in projects.info)
 			{
-				"URL" : ""
+				$("#projects").append(HTMLprojectStart);
+				var formattedProjectTitle = HTMLprojectTitle.replace("%data%", projects.info[project].title);
+				var formattedProjectDates = HTMLprojectDates.replace("%data%", projects.info[project].dates);
+				var formattedProjectDescription = HTMLprojectDescription.replace("%data%", projects.info[project].description);
+				var formattedProjectImage = HTMLprojectImage.replace("%data%", projects.info[project].images);
+				$(".project-entry:last").append(formattedProjectTitle);
+				$(".project-entry:last").append(formattedProjectDates);
+				$(".project-entry:last").append(formattedProjectDescription);
+				//$("#projects").append(formattedProjectImage);
 			}
-		]
-	}
-	];
+
+		}
+	};
 
 var education = {
 	"schools":
@@ -157,3 +175,5 @@ function inName(name_obj)
 }
 
 $("#main").append(internationalizeButton);
+
+projects.display();
