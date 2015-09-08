@@ -24,14 +24,14 @@ var work = {
 		{
 			"employer" : "Tecnicas de Soft S.A.",
 			"title" : "Software Enginieer",
-			"location" : "A Coruña",
+			"location" : "A Coruña, Spain",
 			"dates" : "2015",
 			"description" : "Some description"
 		},
 		{
 			"employer" : "Tecnicas de Soft S.A.",
 			"title" : "Software Developer",
-			"location" : "A Coruña",
+			"location" : "A Coruña, Spain",
 			"dates" : "2011 - 2013",
 			"description" : "A little description"
 		}
@@ -77,13 +77,13 @@ var education = {
 	[
 		{
 			"name" : "Universidad de Vigo",
-			"city" : "Vigo, Galicia, Spain",
+			"location" : "Vigo, Galicia, Spain",
 			"degree" : "BA",
 			"major" : ["Telecommunications", "Embedded software"]
 		},
 				{
 			"name" : "Universidad de Vigo",
-			"city" : "Vigo, Galicia, Spain",
+			"location" : "Vigo, Galicia, Spain",
 			"degree" : "Master",
 			"major" : ["Telecommunications Enginieer", "Embedded software"]
 		}
@@ -177,3 +177,5 @@ function inName(name_obj)
 $("#main").append(internationalizeButton);
 
 projects.display();
+
+$("#mapDiv").append(googleMap);
