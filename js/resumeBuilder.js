@@ -5,7 +5,7 @@ This is empty on purpose! Your code to build the resume will go here.
 
 var bio = {
 	"name" : "Adriel Regueira",
-	"role" : "Telecommunications Enginieer",
+	"role" : "IT Enginieer",
 	"contacts" :
 	{
 	 	"mobile" : "",
@@ -16,7 +16,35 @@ var bio = {
 	},
 	"welcomeMessage" : "print('Hello world')",
 	"skills" : ["Networking", "C#", "C++", "SQL", "C"],
-	"picture" : "images/fry.jpg"
+	"biopic" : "images/fry.jpg",
+	"display" : function(){
+		var formattedName = HTMLheaderName.replace("%data%", bio.name);
+		var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
+		var formattedEmail = HTMLemail.replace("%data%", bio.contacts.email);
+		var formattedWelcomeMessage = HTMLwelcomeMsg.replace("%data%", bio.welcomeMessage);
+		var formattedSkills = HTMLskills.replace("%data%", bio.skills);
+		var formattedImage = HTMLbioPic.replace("%data%", bio.biopic);
+
+		$("#header").prepend(formattedRole);
+		$("#header").prepend(formattedName);
+		$("#header").append(formattedEmail);
+		$("#header").append(formattedWelcomeMessage);
+		$("#header").append(formattedImage);
+
+		if (bio.skills.length > 0){
+			$("#header").append(HTMLskillsStart);
+			var formattedSkills = HTMLskills.replace("%data%", bio.skills[0]);
+			$("#skills").append(formattedSkills);
+			var formattedSkills = HTMLskills.replace("%data%", bio.skills[1]);
+			$("#skills").append(formattedSkills);
+			var formattedSkills = HTMLskills.replace("%data%", bio.skills[2]);
+			$("#skills").append(formattedSkills);
+			var formattedSkills = HTMLskills.replace("%data%", bio.skills[3]);
+			$("#skills").append(formattedSkills);
+			var formattedSkills = HTMLskills.replace("%data%", bio.skills[4]);
+			$("#skills").append(formattedSkills);
+		};
+	}
 };
 
 var work = {
@@ -35,9 +63,25 @@ var work = {
 			"dates" : "2011 - 2013",
 			"description" : "A little description"
 		}
-	]
+	],
+	"display" : function(){
+		for (job in work.jobs){
+			$("#workExperience").append(HTMLworkStart);
+			var formattedEmployer = HTMLworkEmployer.replace("%data%", work.jobs[job].employer);
+			var formattedJobTitle = HTMLworkTitle.replace("%data%", work.jobs[job].title);
+			formattedEmployerJob = formattedEmployer + formattedJobTitle;
+			var formattedLocation = HTMLworkLocation.replace("%data%", work.jobs[job].location);
+			var formattedDates = HTMLworkDates.replace("%data%", work.jobs[job].dates);
+			var formattedDescription = HTMLworkDescription.replace("%data%", work.jobs[job].description);
+			$(".work-entry:last").append(formattedEmployerJob);
+			$(".work-entry:last").append(formattedLocation);
+			$(".work-entry:last").append(formattedDates);
+			$(".work-entry:last").append(formattedDescription);
+		}
+	}
 
 };
+
 
 var projects ={
 	"info" : [
@@ -70,97 +114,58 @@ var projects ={
 			}
 
 		}
-	};
+};
 
 var education = {
-	"schools":
+	"schools" :
 	[
 		{
 			"name" : "Universidad de Vigo",
 			"location" : "Vigo, Galicia, Spain",
 			"degree" : "BA",
-			"major" : ["Telecommunications", "Embedded software"]
+			"majors" : ["Telecommunications", "Embedded software"],
+			"dates": "2013",
+			"url" : ""
 		},
 				{
 			"name" : "Universidad de Vigo",
 			"location" : "Vigo, Galicia, Spain",
 			"degree" : "Master",
-			"major" : ["Telecommunications Enginieer", "Embedded software"]
+			"majors" : ["Telecommunications Enginieer", "Embedded software"],
+			"dates" : "2015",
+			"url" : ""
 		}
 	],
-	"online":
+	"online" :
 	[
 		{
-			"name" : "Front End Web Developer Nanodegree",
+			"title" : "Front End Web Developer Nanodegree",
 			"school" : "Udactie",
 			"date" : "2015",
 			"URL" : "www.udacity.com"
 		},
 		{
-			"name" : "Introdution to Interactive Programming with Python part I",
+			"title" : "Introdution to Interactive Programming with Python part I",
 			"scool" : "coursera",
-			"date" : "2015",
+			"date" : 2015,
 			"URL" : "https://www.coursera.org/account/accomplishments/records/RjBGnKP7mgkQKYkV"
 		},
 		{
-			"name" : "Introdution to Interactive Programming with Python part II",
+			"title" : "Introdution to Interactive Programming with Python part II",
 			"school" : "coursera",
-			"date" : "2015",
+			"date" : 2015,
 			"URL" : "https://www.coursera.org/account/accomplishments/records/JuGzWntkuTuvRmZh"
 		}
-	]
+	],
+	"display" : function(){
+
+	}
 };
 
-var formattedName = HTMLheaderName.replace("%data%", bio.name);
-var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
-var formattedEmail = HTMLemail.replace("%data%", bio.contacts.email);
-var formattedWelcomeMessage = HTMLwelcomeMsg.replace("%data%", bio.welcomeMessage);
-var formattedSkills = HTMLskills.replace("%data%", bio.skills);
-var formattedImage = HTMLbioPic.replace("%data%", bio.picture);
 
-$("#header").prepend(formattedRole);
-$("#header").prepend(formattedName);
-$("#header").append(formattedEmail);
-$("#header").append(formattedWelcomeMessage);
-$("#header").append(formattedImage);
-
-if (bio.skills.length > 0){
-	$("#header").append(HTMLskillsStart);
-	var formattedSkills = HTMLskills.replace("%data%", bio.skills[0]);
-	$("#skills").append(formattedSkills);
-	var formattedSkills = HTMLskills.replace("%data%", bio.skills[1]);
-	$("#skills").append(formattedSkills);
-	var formattedSkills = HTMLskills.replace("%data%", bio.skills[2]);
-	$("#skills").append(formattedSkills);
-	var formattedSkills = HTMLskills.replace("%data%", bio.skills[3]);
-	$("#skills").append(formattedSkills);
-	var formattedSkills = HTMLskills.replace("%data%", bio.skills[4]);
-	$("#skills").append(formattedSkills);
-};
-
-function displayWork()
-{
-	for (job in work.jobs){
-		$("#workExperience").append(HTMLworkStart);
-		var formattedEmployer = HTMLworkEmployer.replace("%data%", work.jobs[job].employer);
-		var formattedJobTitle = HTMLworkTitle.replace("%data%", work.jobs[job].title);
-		formattedEmployerJob = formattedEmployer + formattedJobTitle;
-		var formattedLocation = HTMLworkLocation.replace("%data%", work.jobs[job].location);
-		var formattedDates = HTMLworkDates.replace("%data%", work.jobs[job].dates);
-		var formattedDescription = HTMLworkDescription.replace("%data%", work.jobs[job].description);
-		$(".work-entry:last").append(formattedEmployerJob);
-		$(".work-entry:last").append(formattedLocation);
-		$(".work-entry:last").append(formattedDates);
-		$(".work-entry:last").append(formattedDescription);
-	};
-}
-
-displayWork();
+work.display();
 
 $(document).click(function(loc) {
-  // your code goes here
-  // console.log("X: " + loc.pageX);
-  // console.log("Y: " + loc.pageY);
   logClicks(loc.pageX, loc.pageY);
 });
 
@@ -173,6 +178,8 @@ function inName(name_obj)
 	firstName = firstCharacter + firstName.slice(1);
 	return firstName + " " + lastName;
 }
+
+bio.display();
 
 $("#main").append(internationalizeButton);
 
