@@ -121,18 +121,18 @@ var education = {
 	[
 		{
 			"name" : "Universidad de Vigo",
-			"location" : "Vigo, Galicia, Spain",
+			"location" : "Vigo, Spain",
 			"degree" : "BA",
 			"majors" : ["Telecommunications", "Embedded software"],
-			"dates": "2013",
+			"dates": 2013,
 			"url" : ""
 		},
 				{
 			"name" : "Universidad de Vigo",
-			"location" : "Vigo, Galicia, Spain",
+			"location" : "Vigo, Spain",
 			"degree" : "Master",
 			"majors" : ["Telecommunications Enginieer", "Embedded software"],
-			"dates" : "2015",
+			"dates" : 2015,
 			"url" : ""
 		}
 	],
@@ -146,7 +146,7 @@ var education = {
 		},
 		{
 			"title" : "Introdution to Interactive Programming with Python part I",
-			"scool" : "coursera",
+			"school" : "coursera",
 			"date" : 2015,
 			"URL" : "https://www.coursera.org/account/accomplishments/records/RjBGnKP7mgkQKYkV"
 		},
@@ -158,12 +158,41 @@ var education = {
 		}
 	],
 	"display" : function(){
+		for (school in education.schools)
+		{
+			$("#education").append(HTMLschoolStart);
+			var formattedName = HTMLschoolName.replace("%data%", education.schools[school].name);
+			var formattedLocation = HTMLschoolLocation.replace("%data%", education.schools[school].location);
+			var formattedDegree = HTMLschoolDegree.replace("%data%", education.schools[school].degree);
+			var formattedMajors = HTMLschoolMajor.replace("%data%", education.schools[school].majors);
+			var formattedDates = HTMLschoolDates.replace("%data%", education.schools[school].dates);
+			var formattedNameDegree = formattedName.concat(formattedDegree);
+			$(".education-entry:last").append(formattedNameDegree);
+			$(".education-entry:last").append(formattedDates);
+			$(".education-entry:last").append(formattedLocation);
+			$(".education-entry:last").append(formattedMajors);
+		}
+
+		$("#education").append(HTMLonlineClasses);
+		for (online in education.online)
+		{
+			$("#education").append(HTMLschoolStart);
+			var formattedTitle = HTMLonlineTitle.replace("%data%", education.online[online].title);
+			var formattedSchool = HTMLonlineSchool.replace("%data%", education.online[online].school);
+			var formattedDate = HTMLonlineDates.replace("%data%", education.online[online].date);
+			var formattedURL = HTMLonlineURL.replace("%data%", education.online[online].URL);
+			var formattedTitleSchool = formattedTitle.concat(formattedSchool);
+			$(".education-entry:last").append(formattedTitleSchool);
+			$(".education-entry:last").append(formattedDate);
+			$(".education-entry:last").append(formattedURL);
+		}
 
 	}
 };
 
 
 work.display();
+education.display();
 
 $(document).click(function(loc) {
   logClicks(loc.pageX, loc.pageY);
