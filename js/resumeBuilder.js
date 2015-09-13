@@ -86,9 +86,21 @@ var work = {
 var projects ={
 	"info" : [
 		{
-			"title" : "Project 1",
+			"title" : "Warehouse control system",
 			"dates" : "2015",
-			"description" : "Description",
+			"description" : "Complete software made in C# (.NET) for control a wood factory and its storage. From PLC controllers, to BBDD to store data and the client software throw WCF.",
+			"images" :
+			[
+				{
+					"URL" : ""
+				}
+			]
+
+		},
+				{
+			"title" : "Mobile SCADA system",
+			"dates" : "2013",
+			"description" : "Design and implementation of a custom protocol using UDP for controlling industry process with mobile phones. Made with marmelade in C++.",
 			"images" :
 			[
 				{
@@ -140,7 +152,7 @@ var education = {
 	[
 		{
 			"title" : "Front End Web Developer Nanodegree",
-			"school" : "Udactie",
+			"school" : "Udacity",
 			"date" : "2015",
 			"URL" : "www.udacity.com"
 		},
