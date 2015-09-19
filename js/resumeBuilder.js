@@ -6,8 +6,7 @@ This is empty on purpose! Your code to build the resume will go here.
 var bio = {
 	'name' : 'Adriel Regueira',
 	'role' : 'IT Enginieer',
-	'contacts' :
-	{
+	'contacts' :{
 	 	'mobile' : '+34600101010',
 	 	'email' : 'adriel@fastmail.fm',
 	 	'github' : 'Arials',
@@ -15,7 +14,13 @@ var bio = {
 	 	'location' : 'A Coruña, Spain'
 	},
 	'welcomeMessage' : 'Efficiency Matters',
-	'skills' : ['Networking', 'C#', 'C++', 'SQL', 'C'],
+	'skills' : [
+		'Networking',
+		'C#',
+		'C++',
+		'SQL',
+		'C'
+	],
 	'biopic' : 'images/fry.jpg',
 	'display' : function(){
 		var formattedName = HTMLheaderName.replace('%data%', bio.name);
@@ -74,7 +79,7 @@ var work = {
 		}
 	],
 	'display' : function(){
-		for (job in work.jobs){
+		for (var job in work.jobs){
 			$('#workExperience').append(HTMLworkStart);
 			var formattedEmployer = HTMLworkEmployer.replace('%data%', work.jobs[job].employer);
 			var formattedJobTitle = HTMLworkTitle.replace('%data%', work.jobs[job].title);
@@ -101,19 +106,19 @@ var projects ={
 			'images' :
 			[
 				{
-					'URL' : ''
+					'URL' : 'images/197x148.gif'
 				}
 			]
 
 		},
-				{
+		{
 			'title' : 'Mobile SCADA system',
 			'dates' : '2013',
 			'description' : 'Design and implementation of a custom protocol using UDP for controlling industry process with mobile phones. Made with marmelade in C++.',
 			'images' :
 			[
 				{
-					'URL' : ''
+					'URL' : 'images/197x148.gif'
 				}
 			]
 
@@ -121,25 +126,23 @@ var projects ={
 	],
 	'display' : function display()
 		{
-			for (project in projects.info)
-			{
+			for (var project in projects.info){
 				$('#projects').append(HTMLprojectStart);
 				var formattedProjectTitle = HTMLprojectTitle.replace('%data%', projects.info[project].title);
 				var formattedProjectDates = HTMLprojectDates.replace('%data%', projects.info[project].dates);
 				var formattedProjectDescription = HTMLprojectDescription.replace('%data%', projects.info[project].description);
-				var formattedProjectImage = HTMLprojectImage.replace('%data%', projects.info[project].images);
+				var formattedProjectImage = HTMLprojectImage.replace('%data%', projects.info[project].images[0].URL);
 				$('.project-entry:last').append(formattedProjectTitle);
 				$('.project-entry:last').append(formattedProjectDates);
 				$('.project-entry:last').append(formattedProjectDescription);
-				//$('#projects').append(formattedProjectImage);
+				$('.project-entry:last').append(formattedProjectImage);
 			}
 
 		}
 };
 
 var education = {
-	'schools' :
-	[
+	'schools' :[
 		{
 			'name' : 'Universidad de Vigo',
 			'location' : 'Vigo, Spain',
@@ -148,7 +151,7 @@ var education = {
 			'dates': 2013,
 			'url' : 'http://teleco.uvigo.es/index.php/gl/'
 		},
-				{
+		{
 			'name' : 'Universidad de Vigo',
 			'location' : 'Vigo, Spain',
 			'degree' : 'Master',
@@ -157,8 +160,7 @@ var education = {
 			'url' : 'http://teleco.uvigo.es/index.php/gl/'
 		}
 	],
-	'online' :
-	[
+	'online' :[
 		{
 			'title' : 'Front End Web Developer Nanodegree',
 			'school' : 'Udacity',
@@ -179,8 +181,7 @@ var education = {
 		}
 	],
 	'display' : function(){
-		for (school in education.schools)
-		{
+		for (var school in education.schools){
 			$('#education').append(HTMLschoolStart);
 			var formattedName = HTMLschoolName.replace('%data%', education.schools[school].name);
 			var formattedLocation = HTMLschoolLocation.replace('%data%', education.schools[school].location);
@@ -195,8 +196,7 @@ var education = {
 		}
 
 		$('#education').append(HTMLonlineClasses);
-		for (online in education.online)
-		{
+		for (var online in education.online){
 			$('#education').append(HTMLschoolStart);
 			var formattedTitle = HTMLonlineTitle.replace('%data%', education.online[online].title);
 			var formattedSchool = HTMLonlineSchool.replace('%data%', education.online[online].school);
@@ -219,8 +219,7 @@ $(document).click(function(loc) {
   logClicks(loc.pageX, loc.pageY);
 });
 
-function inName(name_obj)
-{
+function inName(name_obj){
 	var nameTemp = 'Adriel Regueira'.split(' ');
 	var lastName = nameTemp[1].toUpperCase();
 	var firstName = nameTemp[0].toLowerCase();
