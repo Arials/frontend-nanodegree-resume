@@ -79,7 +79,9 @@ var work = {
 		}
 	],
 	'display' : function(){
-		for (var job in work.jobs){
+		var len = work.jobs.length;
+
+		for (var job = 0; len > job; job++){
 			$('#workExperience').append(HTMLworkStart);
 			var formattedEmployer = HTMLworkEmployer.replace('%data%', work.jobs[job].employer);
 			var formattedJobTitle = HTMLworkTitle.replace('%data%', work.jobs[job].title);
@@ -126,7 +128,9 @@ var projects ={
 	],
 	'display' : function display()
 		{
-			for (var project in projects.info){
+			var len = projects.info.length;
+
+			for (var project = 0; len > project; project++){
 				$('#projects').append(HTMLprojectStart);
 				var formattedProjectTitle = HTMLprojectTitle.replace('%data%', projects.info[project].title);
 				var formattedProjectDates = HTMLprojectDates.replace('%data%', projects.info[project].dates);
@@ -181,7 +185,9 @@ var education = {
 		}
 	],
 	'display' : function(){
-		for (var school in education.schools){
+		var len = education.schools.length;
+
+		for (var school = 0; len > school; school++){
 			$('#education').append(HTMLschoolStart);
 			var formattedName = HTMLschoolName.replace('%data%', education.schools[school].name);
 			var formattedLocation = HTMLschoolLocation.replace('%data%', education.schools[school].location);
@@ -196,7 +202,9 @@ var education = {
 		}
 
 		$('#education').append(HTMLonlineClasses);
-		for (var online in education.online){
+		len = education.online.length;
+
+		for (var online = 0; len > online; online++){
 			$('#education').append(HTMLschoolStart);
 			var formattedTitle = HTMLonlineTitle.replace('%data%', education.online[online].title);
 			var formattedSchool = HTMLonlineSchool.replace('%data%', education.online[online].school);
