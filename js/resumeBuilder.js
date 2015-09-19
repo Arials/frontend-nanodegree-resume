@@ -8,13 +8,13 @@ var bio = {
 	"role" : "IT Enginieer",
 	"contacts" :
 	{
-	 	"mobile" : "",
+	 	"mobile" : "+34600101010",
 	 	"email" : "adriel@fastmail.fm",
 	 	"github" : "Arials",
 	 	"twitter" : "adrielre",
 	 	"location" : "A Coruña, Spain"
 	},
-	"welcomeMessage" : "print('Hello world')",
+	"welcomeMessage" : "Efficiency Matters",
 	"skills" : ["Networking", "C#", "C++", "SQL", "C"],
 	"biopic" : "images/fry.jpg",
 	"display" : function(){
@@ -24,12 +24,21 @@ var bio = {
 		var formattedWelcomeMessage = HTMLwelcomeMsg.replace("%data%", bio.welcomeMessage);
 		var formattedSkills = HTMLskills.replace("%data%", bio.skills);
 		var formattedImage = HTMLbioPic.replace("%data%", bio.biopic);
+		var formattedTwitter = HTMLtwitter.replace("%data%", bio.contacts.twitter);
+		var formattedGithub = HTMLgithub.replace("%data%", bio.contacts.github);
+		var formattedMobile = HTMLmobile.replace("%data%", bio.contacts.mobile);
+		var formattedLocation = HTMLlocation.replace("%data%", bio.contacts.location);
 
 		$("#header").prepend(formattedRole);
 		$("#header").prepend(formattedName);
-		$("#header").append(formattedEmail);
+		$("#topContacts, #footerContacts").append(formattedEmail);
+		$("#topContacts, #footerContacts").append(formattedTwitter);
+		$("#topContacts, #footerContacts").append(formattedGithub);
+		$("#topContacts, #footerContacts").append(formattedMobile);
+		$("#topContacts, #footerContacts").append(formattedLocation);
 		$("#header").append(formattedWelcomeMessage);
 		$("#header").append(formattedImage);
+
 
 		if (bio.skills.length > 0){
 			$("#header").append(HTMLskillsStart);
@@ -137,7 +146,7 @@ var education = {
 			"degree" : "BA",
 			"majors" : ["Telecommunications", "Embedded software"],
 			"dates": 2013,
-			"url" : ""
+			"url" : "http://teleco.uvigo.es/index.php/gl/"
 		},
 				{
 			"name" : "Universidad de Vigo",
@@ -145,7 +154,7 @@ var education = {
 			"degree" : "Master",
 			"majors" : ["Telecommunications Enginieer", "Embedded software"],
 			"dates" : 2015,
-			"url" : ""
+			"url" : "http://teleco.uvigo.es/index.php/gl/"
 		}
 	],
 	"online" :
@@ -154,7 +163,7 @@ var education = {
 			"title" : "Front End Web Developer Nanodegree",
 			"school" : "Udacity",
 			"date" : "2015",
-			"URL" : "www.udacity.com"
+			"URL" : "https://www.udacity.com/course/front-end-web-developer-nanodegree--nd001"
 		},
 		{
 			"title" : "Introdution to Interactive Programming with Python part I",
@@ -222,7 +231,7 @@ function inName(name_obj)
 
 bio.display();
 
-$("#main").append(internationalizeButton);
+//$("#main").append(internationalizeButton);
 
 projects.display();
 
